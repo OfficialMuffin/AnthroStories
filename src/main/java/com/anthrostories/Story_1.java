@@ -43,12 +43,8 @@ public class Story_1 {
         String randItem = miscItems[item];
 
 
-        //Try to sort out the game so it prints out each word at a time
 
-
-        //
-
-
+        //Start of Game
         Scanner name = new Scanner(System.in);
         System.out.println("First of all, What is your name?: ");
         String userName = name.nextLine();
@@ -95,13 +91,13 @@ public class Story_1 {
 
                 //Game Start
                 //Choose a place to go
-                System.out.println("################");
+                System.out.println("###############################");
                 System.out.println("Where do you want to go next?: ");
                 System.out.println("1. Bedroom");
                 System.out.println("2. Kitchen");
                 System.out.println("3. Garden");
                 System.out.println("4. Sister's Room");
-                System.out.println("################");
+                System.out.println("###############################");
 
                 String place = input.nextLine();
                 if (place.equals("1")) {
@@ -147,15 +143,12 @@ public class Story_1 {
                     String reply = say.nextLine();
                     if (reply.equals("1")) {
                         System.out.println("*Your mum replies* Well that's no excuse. Go and do it now!");
-
                     }
                     else if (reply.equals("2")) {
                         System.out.println("*Your mum shouts* That's no way to speak to your mother! Go to your room!");
-
                     }
                     else if (reply.equals("3")) {
                         System.out.println("*Your mother replies* Good, when you've done that, do your homework, ok?");
-
                     }
                     else {
                         System.out.println("Invalid input! Please choose from the following options: ");
@@ -165,8 +158,6 @@ public class Story_1 {
                     System.out.println("Invalid input! Please choose from the following options: ");
                     //continue;
                 }
-
-
             } catch (InterruptedException e) {
                 System.out.println();
             }
