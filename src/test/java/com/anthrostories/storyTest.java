@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for anthrostories.
  */
-public class anthrostories
+public class storyTest
         extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class anthrostories
      *
      * @param testName name of the test case
      */
-    public anthrostories( String testName )
+    public storyTest( String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class anthrostories
      */
     public static Test suite()
     {
-        return new TestSuite( anthrostories.class );
+        return new TestSuite( storyTest.class );
     }
 
     /**
