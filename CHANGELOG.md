@@ -6,7 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## 0.0.4 - 2018-11-19 [LATEST]
+## 0.0.5 - 2018-12-15 [LATEST]
+### Added 
+- Text now has a typewriter effect
+
+### Known Issues
+- Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
+  	at com.anthrostories.Story_1.main(Story_1.java:43)
+
+## 0.0.4 - 2018-11-19
 ### Added
 - Check inventory space and usage
 - More speech 

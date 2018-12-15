@@ -50,33 +50,22 @@ public class Story_1 {
         String userName = name.nextLine();
         try {
             //Introduction
-            //Random character type fix!!!
+
             System.out.println("You are a " + randCharacter);
-            System.out.print("One day there was a " + randSex + " " + randCharacter + " named " + userName);
-            Thread.sleep(2000);
-            System.out.print("\n");
 
-            System.out.print("You are "  + age + " years old and ");
-            Thread.sleep(1000);
-            System.out.print("living with your mother.");
             Thread.sleep(2000);
-            System.out.print("\n");
 
-            System.out.print("You have one " + randpersonality + " sister named ");
-            Thread.sleep(1000);
-            System.out.print("Hollie.");
-            Thread.sleep(2000);
-            System.out.print("\n");
+            String text = "One day there was a " + randSex + " " + randCharacter + " named " + userName + "\n" +
+                                "You are " + age + " years old and living with your mother. \n" +
+                                "You have one " + randpersonality + " sister named Hollie.\n"+
+                                "You are on your final year at college and ready to explore the outside world.\n";
 
-            System.out.print("You are on your final year at college ");
-            Thread.sleep(1000);
-            System.out.print("and ready to explore the outside world.");
+            slowPrint(text, 80);
             Thread.sleep(2000);
+
         } catch (InterruptedException e) {
             return;
         }
-
-
 
         boolean running = true;
 
@@ -102,39 +91,42 @@ public class Story_1 {
 
                 String place = input.nextLine();
                 if (place.equals("1")) {
-                    System.out.println("'Ughh, my bedroom is a mess. I really need to clean up.'");
+                    String text = "'Ughh, my bedroom is a mess. I really need to clean up...'";
+                    slowPrint(text, 100);
                     continue;
                 }
                 else if (place.equals("2")) {
-                    System.out.println("Im feeling quite hungry. What's for snack? *Looks in the fridge*");
-                    Thread.sleep(2500);
+                    String text = "Im feeling quite hungry. What's for snack? *Looks in the fridge*\n" +
+                                    "I'll take this!\n";
+                    slowPrint(text, 100);
+
+                    Thread.sleep(1500);
                     //Get item from fridge
-                    System.out.println("Ill take this!");
                     System.out.println("You get a " + randFood);
                     numberOfItems++;
                     maxInventorySpace--;
                     continue;
                 }
                 else if (place.equals("3")) {
-                    System.out.println("*takes a deep breath* Ahhh, what a beautiful day!");
+                    String text = "*takes a deep breath* Ahhh, what a beautiful day!\n" +
+                            "*Birds chirp nearby*\n";
+                    slowPrint(text, 100);
                     Thread.sleep(1000);
-                    System.out.println("*Birds chirp nearby*");
                     System.out.println("You find a " + randItem);
                     numberOfItems++;
                     maxInventorySpace--;
                     continue;
                 }
                 else if (place.equals("4")) {
-                    System.out.println("*Sister shouts at you* GET OUT! NO BOYS ALLOWED!");
-                    Thread.sleep(2000);
-                    System.out.println("*You say to yourself* Ok, Ok, Jeeze! No need to be a bitch about it.");
-                    Thread.sleep(2000);
-                    System.out.println("*You walk away from her room, sighing*");
-                    Thread.sleep(2000);
-                    System.out.println("*You think to yourself* I wish I could get along with her better");
-                    Thread.sleep(2000);
-                    System.out.println("*Your mother walks by and says* " + userName + ", why haven't you cleaned your room yet?");
-                    Thread.sleep(2000);
+                    String text = "*Sister shouts at you* GET OUT! NO BOYS ALLOWED!\n" +
+                            "*You say to yourself* Ok, Ok, Jeeze! No need to be a bitch about it.\n" +
+                            "*You walk away from her room, sighing*\n" +
+                            "*You think to yourself* I wish I could get along with her better\n" +
+                            "*Your mother walks by and says* " + userName + ", why haven't you cleaned your room yet?\n";
+                    slowPrint(text, 200);
+
+                    Thread.sleep(3000);
+
                     System.out.println("################");
                     System.out.println("What do you want to say?: ");
                     System.out.println("1. I had other stuff to do.");
@@ -145,15 +137,17 @@ public class Story_1 {
                     Scanner say = new Scanner(System.in);
                     String reply = say.nextLine();
                         if (reply.equals("1")) {
-                            System.out.println("*Your mum replies* Well that's no excuse. Go and do it now!");
+                            String mumReply = "*Your mum replies* Well that's no excuse. Go and do it now!";
+                            mumReplySlowPrint(mumReply, 100);
                         }
                         else if (reply.equals("2")) {
-                            System.out.println("*Your mum shouts* That's no way to speak to your mother! Go to your room!");
-                            Thread.sleep(2000);
-                            System.out.println("*You storm off to your room and slam your door in frustration.*");
+                            String mumReply = "*Your mum shouts* That's no way to speak to your mother! Go to your room!\n" +
+                            "*You storm off to your room and slam your door in frustration.*";
+                            mumReplySlowPrint(mumReply, 100);
                         }
                         else if (reply.equals("3")) {
-                            System.out.println("*Your mother replies* Good, when you've done that, do your homework, ok?");
+                            String mumReply = "*Your mother replies* Good, when you've done that, do your homework, ok?";
+                            mumReplySlowPrint(mumReply, 100);
                         }
                         else {
                             System.out.println("Invalid input! Please choose from the following options: ");
@@ -171,6 +165,8 @@ public class Story_1 {
                     System.out.println("and");
                     Thread.sleep(500);
                     System.out.println("You have " + maxInventorySpace + " inventory space left!");
+                    Thread.sleep(500);
+                    System.out.println("To gain more inventory space, you'll need to find a backpack.");
                 }
                 else {
                     System.out.println("Invalid input! Please choose from the following options: ");
@@ -179,6 +175,46 @@ public class Story_1 {
             } catch (InterruptedException e) {
                 System.out.println();
             }
+        }
+    }
+
+    /**
+     * Typewriter effect
+     * @param text String to print
+     * @param millisPerChar Number of milliseconds to print each char
+     */
+    public static void slowPrint(String text, long millisPerChar) {
+
+        for (int i = 0; i < text.length(); i++) {
+
+            System.out.print(text.charAt(i));
+
+            try {
+                Thread.sleep(millisPerChar);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    /**
+     *
+     * @param mumReply Mothers Reply Text
+     * @param mSecPerChar Milliseconds per Char
+     */
+    public static void mumReplySlowPrint(String mumReply, long mSecPerChar) {
+
+        for (int i = 0; i < mumReply.length(); i++) {
+
+            System.out.print(mumReply.charAt(i));
+
+            try {
+                Thread.sleep(mSecPerChar);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
