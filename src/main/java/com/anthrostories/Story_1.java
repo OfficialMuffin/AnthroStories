@@ -160,6 +160,8 @@ public class Story_1 {
                         System.out.println(i);
                         Thread.sleep(500);
                     }
+                    System.out.println("You have " + randItem + " in your inventory!"); // Remember what was placed in inventory
+                    Thread.sleep(500);
                     System.out.println("You have " + numberOfItems + " items in your inventory!");
                     Thread.sleep(500);
                     System.out.println("and");
